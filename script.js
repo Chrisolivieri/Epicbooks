@@ -14,7 +14,7 @@ fetch("https://striveschool-api.herokuapp.com/books")
                 <div class="card-body">
                   <h5 class="card-title">${item.title}</h5>
                   <p class="card-text">Category: ${item.category}</p>
-                  <a href="#" class="btn btn-primary">Aggiungi al carrello</a>
+                  <a href="#" class= "btn btn-primary" onclick='aggiungiAlCarrello(${JSON.stringify(item)})'>Aggiungi al carrello</a>
                 </div>
               </div>  `
             })
@@ -47,7 +47,7 @@ function filtraLibri(){
                   <div class="card-body">
                     <h5 class="card-title">${item.title}</h5>
                     <p class="card-text">Category: ${item.category}</p>
-                    <a href="#" class="btn btn-primary">Aggiungi al carrello</a>
+                    <a href="#" class= "btn btn-primary" onclick='aggiungiAlCarrello(${JSON.stringify(item)})'>Aggiungi al carrello</a>
                   </div>
                 </div>  `
                 }
@@ -64,3 +64,24 @@ function filtraLibri(){
   
 }
 
+
+let carrello = []
+
+function aggiungiAlCarrello(libro){
+  carrello.push(libro)
+  alert("Libro aggiunto al carrello")
+  aggiornaCarrello()
+  
+}
+function aggiornaCarrello(){  
+  let div = document.getElementById("carrello")
+  div.innerHTML = ""
+
+  carrello.map((item)=>{
+    div.innerHTML += `<div class="cart-item">
+    <h5>${item.title}</h5>
+    
+  </div>`
+  })
+  
+}
