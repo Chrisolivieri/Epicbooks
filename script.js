@@ -83,7 +83,7 @@ function aggiornaCarrello() {
 
   carrello.map((item) => {
     div.innerHTML += `<div class="card2" style="width: 10rem;">
-    <p> ${item.title} </p>
+    <p><b> ${item.title} </b></p>
     <img src= ${item.img} class="card-img-top" alt="...">
     </div>`
   })

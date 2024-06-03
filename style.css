@@ -13,9 +13,6 @@
 
 .card2 {
   margin-bottom: 1rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   border: 1px solid gray;
   border-radius: 10px;
 }
@@ -31,4 +28,12 @@
 span {
   margin-bottom: 1rem;
   text-align: center;
+}
+
+p{
+  white-space: nowrap;  
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  font-size: small;
+  
 }
