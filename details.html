@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dettagli libro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="http://127.0.0.1:5500/index.html"class ="mx-3"> < Torna indietro</a>
+    <section id="book" class="container d-flex justify-content-center"></section>
+    
+    <script>
+
+console.log(window.location.search)
+    const params = new URLSearchParams(window.location.search)
+    const asin = params.get('id')
+    const img = params.get('img')
+    const title = params.get('title')
+    const category = params.get('ctg')
+    const price = params.get('price')
+    
+    console.log(asin)
+    console.log(img) 
+    console.log(title)  
+    console.log(category)
+    console.log(price)
+    
+    fetch("https://striveschool-api.herokuapp.com/books")
+  .then((response)=>{
+    response.json()
+    .then((books)=>{
+      console.log(books)
+
+      let book = ` <div class="card" style="width: 28rem;">
+                <img src= ${img} alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">${title}</h5>
+                  <p class="card-text">Categoria: ${category}</p>
+                  <p class="card-text">Prezzo: € ${price}</p>
+                  `
+                  document.getElementById("book").innerHTML = book
+      
+    })
+  })
+  
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+</body>
+</html>

@@ -23,6 +23,7 @@
 
 .btn {
   border-radius: 20px;
+  margin-top: 1rem;
 }
 
 span {
@@ -36,4 +37,16 @@ p{
   text-overflow: ellipsis; 
   font-size: small;
   
+}
+
+a{
+  display: inline-block;
+  padding-top: 1rem;
+  text-decoration: none;
+  color: #1296AB;
+}
+
+a:hover{
+  text-decoration: underline;
+  color: red;
 }
